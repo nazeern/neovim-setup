@@ -6,6 +6,9 @@ return {
 			"sindrets/diffview.nvim",
 			"nvim-telescope/telescope.nvim",
 		},
+		config = function()
+			vim.keymap.set("n", "<leader>gs", ":Neogit<CR>")
+		end,
 	},
 	{
 		"lewis6991/gitsigns.nvim",
@@ -13,6 +16,8 @@ return {
 			require("gitsigns").setup({
 				current_line_blame = true,
 				on_attach = function(bufnr)
+					local gitsigns = require("gitsigns")
+
 					local function map(mode, l, r, opts)
 						opts = opts or {}
 						opts.buffer = bufnr
