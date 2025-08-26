@@ -1,5 +1,8 @@
 require("config.lazy")
 
+vim.opt.number = true
+vim.opt.relativenumber = true
+
 vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
@@ -18,6 +21,8 @@ vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help ta
 vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find keymaps" })
 vim.keymap.set("n", "<leader>fd", builtin.lsp_document_symbols, { desc = "Find symbols" })
 vim.keymap.set("n", "<leader>fm", builtin.marks, { desc = "Find marks" })
+
+vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "View branches" })
 
 vim.keymap.set("n", "<leader>e", "<Cmd>Neotree toggle<CR>")
 
