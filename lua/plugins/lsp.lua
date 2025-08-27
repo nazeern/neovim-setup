@@ -9,6 +9,7 @@ return {
 			ensure_installed = {
 				"lua_ls",
 			},
+			automatic_installation = true,
 		},
 		dependencies = {
 			{ "mason-org/mason.nvim", opts = {} },
