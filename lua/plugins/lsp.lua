@@ -8,7 +8,7 @@ return {
 		opts = {
 			ensure_installed = {
 				"lua_ls",
-				"pyright",
+				"basedpyright",
 				-- python
 				"ruff",
 			},
@@ -29,21 +29,16 @@ return {
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
-			lspconfig.pyright.setup({
+			lspconfig.basedpyright.setup({
 				capabilities = capabilities,
 			})
 			lspconfig.ruff.setup({
 				capabilities = capabilities,
 			})
 
-			-- Show hover after 1 second
-			vim.opt.updatetime = 1000
-			vim.api.nvim_create_autocmd("CursorHold", {
-				callback = function()
-					vim.lsp.buf.hover()
-				end,
-			})
+			vim.keymap.set('n', 'gi', vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+			vim.keymap.set("n", "gb", "<C-o>", {})
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 		end,
 	},
