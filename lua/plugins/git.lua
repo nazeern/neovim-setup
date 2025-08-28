@@ -8,6 +8,16 @@ return {
 		},
 		config = function()
 			vim.keymap.set("n", "<leader>gs", ":Neogit<CR>")
+			local neogit = require("neogit")
+
+			-- Use <space> instead of <tab> for toggling
+			neogit.setup({
+				mappings = {
+					status = {
+						["<space>"] = "Toggle",
+					},
+				},
+			})
 		end,
 	},
 	{
@@ -45,8 +55,7 @@ return {
 					map("n", "<leader>hr", gitsigns.reset_hunk)
 					map("n", "<leader>hS", gitsigns.stage_buffer)
 					map("n", "<leader>hR", gitsigns.reset_buffer)
-					map("n", "<leader>hp", gitsigns.preview_hunk)
-					map("n", "<leader>hi", gitsigns.preview_hunk_inline)
+					map("n", "<leader>hp", gitsigns.preview_hunk_inline)
 					map("n", "<leader>hd", gitsigns.diffthis)
 
 					map("n", "<leader>hD", function()

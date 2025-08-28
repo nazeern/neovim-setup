@@ -8,7 +8,11 @@ return {
 		opts = {
 			ensure_installed = {
 				"lua_ls",
+				"pyright",
+				-- python
+				"ruff",
 			},
+			automatic_enable = true,
 			automatic_installation = true,
 		},
 		dependencies = {
@@ -23,6 +27,12 @@ return {
 
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.pyright.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.ruff.setup({
 				capabilities = capabilities,
 			})
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})

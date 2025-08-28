@@ -6,6 +6,7 @@ vim.opt.relativenumber = true
 vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
+vim.cmd("set lazyredraw")
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -25,6 +26,10 @@ vim.keymap.set("n", "<leader>fm", builtin.marks, { desc = "Find marks" })
 vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "View branches" })
 
 vim.keymap.set("n", "<leader>e", "<Cmd>Neotree toggle<CR>")
+
+-- Use Shift to move up and down faster
+vim.keymap.set('n', 'J', '10j', {})
+vim.keymap.set('n', 'K', '10k', {})
 
 vim.diagnostic.config({
 	virtual_text = {
