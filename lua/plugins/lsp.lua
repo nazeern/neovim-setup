@@ -35,7 +35,14 @@ return {
 			lspconfig.ruff.setup({
 				capabilities = capabilities,
 			})
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+
+			-- Show hover after 1 second
+			vim.opt.updatetime = 1000
+			vim.api.nvim_create_autocmd("CursorHold", {
+				callback = function()
+					vim.lsp.buf.hover()
+				end,
+			})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 		end,
