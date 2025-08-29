@@ -23,6 +23,7 @@ vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find keymaps" })
 vim.keymap.set("n", "<leader>fd", builtin.lsp_document_symbols, { desc = "Find symbols" })
 vim.keymap.set("n", "<leader>fm", builtin.marks, { desc = "Find marks" })
 vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Show recent files" })
+vim.keymap.set("n", "gr", builtin.lsp_references, { nowait = true, desc = "Show references under cursor" })
 
 vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "View branches" })
 
