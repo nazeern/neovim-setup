@@ -22,14 +22,24 @@ vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help ta
 vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find keymaps" })
 vim.keymap.set("n", "<leader>fd", builtin.lsp_document_symbols, { desc = "Find symbols" })
 vim.keymap.set("n", "<leader>fm", builtin.marks, { desc = "Find marks" })
+vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Show recent files" })
 
 vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "View branches" })
 
 vim.keymap.set("n", "<leader>e", "<Cmd>Neotree toggle<CR>")
 
 -- Use Shift to move up and down faster
-vim.keymap.set('n', 'J', '10j', {})
-vim.keymap.set('n', 'K', '10k', {})
+vim.keymap.set("n", "J", "10j", {})
+vim.keymap.set("n", "K", "10k", {})
+
+-- Copy relative path to clipboard
+vim.keymap.set("n", "<leader>cr", function()
+	local root = vim.fn.getcwd(-1, 0) -- Buffer's local CWD (root)
+	local abs_path = vim.fn.expand("%:p") -- Absolute path to file
+	local rel_path = vim.fn.fnamemodify(abs_path, ":." .. root)
+	vim.fn.setreg("+", rel_path)
+	vim.notify("Copied project‑relative path: " .. rel_path, vim.log.levels.INFO)
+end, { desc = "Copy project-relative path to clipboard" })
 
 vim.diagnostic.config({
 	virtual_text = {
