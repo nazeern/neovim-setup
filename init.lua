@@ -2,6 +2,10 @@ require("config.lazy")
 
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.o.clipboard = "unnamedplus"
+
+-- Deleting shouldn't yank
+vim.keymap.set("n", "dd", '"_dd')
 
 vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
@@ -25,9 +29,7 @@ vim.keymap.set("n", "<leader>fm", builtin.marks, { desc = "Find marks" })
 vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Show recent files" })
 vim.keymap.set("n", "gr", builtin.lsp_references, { nowait = true, desc = "Show references under cursor" })
 
-vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "View branches" })
-
-vim.keymap.set("n", "<leader>e", "<Cmd>Neotree toggle<CR>")
+vim.keymap.set("n", "<leader>e", "<Cmd>Neotree<CR>")
 
 -- Use Shift to move up and down faster
 vim.keymap.set("n", "J", "10j", {})
@@ -35,7 +37,7 @@ vim.keymap.set("n", "K", "10k", {})
 
 -- Copy relative path to clipboard
 vim.keymap.set("n", "<leader>cr", function()
-	local root = vim.fn.getcwd(-1, 0) -- Buffer's local CWD (root)
+	local root = vim.fn.getcwd(-1, 0)  -- Buffer's local CWD (root)
 	local abs_path = vim.fn.expand("%:p") -- Absolute path to file
 	local rel_path = vim.fn.fnamemodify(abs_path, ":." .. root)
 	vim.fn.setreg("+", rel_path)

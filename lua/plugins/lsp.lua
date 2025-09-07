@@ -8,9 +8,13 @@ return {
 		opts = {
 			ensure_installed = {
 				"lua_ls",
-				"basedpyright",
 				-- python
+				"basedpyright",
 				"ruff",
+				-- webdev
+				"eslint_d",
+				"prettierd",
+				"svelte",
 			},
 			automatic_enable = true,
 			automatic_installation = true,
@@ -36,7 +40,7 @@ return {
 				capabilities = capabilities,
 			})
 
-			vim.keymap.set('n', 'gi', vim.lsp.buf.hover, {})
+			vim.keymap.set("n", "gi", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 			vim.keymap.set("n", "gb", "<C-o>", {})
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
