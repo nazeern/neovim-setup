@@ -15,6 +15,7 @@ return {
 				"eslint_d",
 				"prettierd",
 				"svelte",
+				"ts_ls",
 			},
 			automatic_enable = true,
 			automatic_installation = true,
@@ -37,6 +38,12 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.ruff.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.svelte.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
 			})
 
