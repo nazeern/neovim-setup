@@ -11,6 +11,7 @@ return {
 				"basedpyright",
 				-- python
 				"ruff",
+				"elixirls",
 			},
 			automatic_enable = true,
 			automatic_installation = true,
@@ -36,7 +37,12 @@ return {
 				capabilities = capabilities,
 			})
 
-			vim.keymap.set('n', 'gi', vim.lsp.buf.hover, {})
+			lspconfig.elixirls.setup({
+				capabilities = capabilities,
+				cmd = { "elixir-ls" },
+			})
+
+			vim.keymap.set("n", "gi", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 			vim.keymap.set("n", "gb", "<C-o>", {})
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
