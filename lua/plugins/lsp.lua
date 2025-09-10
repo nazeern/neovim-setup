@@ -16,6 +16,7 @@ return {
 				"prettierd",
 				"svelte",
 				"ts_ls",
+				"elixirls",
 			},
 			automatic_enable = true,
 			automatic_installation = true,
@@ -45,6 +46,10 @@ return {
 			})
 			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
+			})
+			lspconfig.elixirls.setup({
+				capabilities = capabilities,
+				cmd = { "elixir-ls" },
 			})
 
 			vim.keymap.set("n", "gi", vim.lsp.buf.hover, {})
