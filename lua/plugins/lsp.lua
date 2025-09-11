@@ -14,6 +14,7 @@ return {
 				-- webdev
 				"eslint_d",
 				"prettierd",
+				'html',
 				"svelte",
 				"ts_ls",
 				"elixirls",
@@ -39,6 +40,9 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.ruff.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.html.setup({
 				capabilities = capabilities,
 			})
 			lspconfig.svelte.setup({
