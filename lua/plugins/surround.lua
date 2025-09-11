@@ -17,4 +17,5 @@ return {
 		end,
 		opts = {},
 	},
+	"windwp/nvim-ts-autotag",
 }
