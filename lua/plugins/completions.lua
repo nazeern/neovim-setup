@@ -16,6 +16,10 @@ return {
 			local luasnip = require("luasnip")
 			require("luasnip.loaders.from_vscode").lazy_load()
 
+			local s = luasnip.snippet
+			local t = luasnip.text_node
+			local i = luasnip.insert_node
+
 			cmp.setup({
 				snippet = {
 					expand = function(args)
@@ -59,6 +63,16 @@ return {
 					{ name = "luasnip" }, -- For luasnip users.
 				}, {
 					{ name = "buffer" },
+				}),
+			})
+
+			-- Add custom snippets
+			luasnip.add_snippets("all", {
+				s("af", {
+					t("("),
+					i(1, "arguments"),
+					t(") => "),
+					i(2, "statement"),
 				}),
 			})
 		end,
