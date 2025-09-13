@@ -46,10 +46,12 @@ end, { desc = "Copy project-relative path to clipboard" })
 
 vim.diagnostic.config({
 	virtual_text = {
-		source = "always",
+		source = "hover",
 	},
 	signs = true,
 	underline = true,
 	update_in_insert = false,
 	severity_sort = true,
 })
+-- Open a floating window with diagnostics on the current line
+vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Show diagnostics' })
