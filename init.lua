@@ -37,7 +37,7 @@ vim.keymap.set("n", "K", "10k", {})
 
 -- Copy relative path to clipboard
 vim.keymap.set("n", "<leader>cr", function()
-	local root = vim.fn.getcwd(-1, 0)  -- Buffer's local CWD (root)
+	local root = vim.fn.getcwd(-1, 0) -- Buffer's local CWD (root)
 	local abs_path = vim.fn.expand("%:p") -- Absolute path to file
 	local rel_path = vim.fn.fnamemodify(abs_path, ":." .. root)
 	vim.fn.setreg("+", rel_path)
@@ -54,4 +54,6 @@ vim.diagnostic.config({
 	severity_sort = true,
 })
 -- Open a floating window with diagnostics on the current line
-vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Show diagnostics' })
+vim.keymap.set("n", "<leader>d", function()
+	vim.diagnostic.open_float({ border = "rounded" })
+end, { desc = "Show diagnostics" })
