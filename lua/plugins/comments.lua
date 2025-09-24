@@ -1,4 +1,9 @@
 return {
 	"numToStr/Comment.nvim",
-	opts = {},
+	opts = {
+		mappings = false,
+		opleader = {
+			line = "gc",
+		},
+	},
 }
