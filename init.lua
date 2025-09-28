@@ -7,6 +7,9 @@ vim.o.clipboard = "unnamedplus"
 -- Deleting shouldn't yank
 vim.keymap.set("n", "dd", '"_dd')
 
+-- use 'R' to redo instead of ctrl-R
+vim.keymap.set('n', 'r', '<C-r>')
+
 vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
