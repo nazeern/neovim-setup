@@ -8,7 +8,15 @@ vim.o.clipboard = "unnamedplus"
 vim.keymap.set("n", "dd", '"_dd')
 
 -- use 'R' to redo instead of ctrl-R
-vim.keymap.set('n', 'r', '<C-r>')
+vim.keymap.set("n", "r", "<C-r>")
+
+-- Shortcut
+vim.keymap.set(
+	"n",
+	"<leader>s",
+	":%s/<C-r><C-w>/<C-r><C-w>/gc<Left><Left><Left>",
+	{ desc = "Replace word under cursor" }
+)
 
 vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
@@ -40,7 +48,7 @@ vim.keymap.set("n", "K", "10k", {})
 
 -- Copy relative path to clipboard
 vim.keymap.set("n", "<leader>cr", function()
-	local root = vim.fn.getcwd(-1, 0) -- Buffer's local CWD (root)
+	local root = vim.fn.getcwd(-1, 0)  -- Buffer's local CWD (root)
 	local abs_path = vim.fn.expand("%:p") -- Absolute path to file
 	local rel_path = vim.fn.fnamemodify(abs_path, ":." .. root)
 	vim.fn.setreg("+", rel_path)

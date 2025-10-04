@@ -15,6 +15,7 @@ return {
 				mappings = {
 					status = {
 						["<space>"] = "Toggle",
+						["K"] = false,
 					},
 				},
 			})
