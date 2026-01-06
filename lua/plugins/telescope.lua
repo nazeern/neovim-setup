@@ -16,6 +16,7 @@ return {
 				},
 				defaults = {
 					path_display = { "smart" },
+					layout_config = { width = 0.999 }
 				},
 			})
 			require("telescope").load_extension("ui-select")
