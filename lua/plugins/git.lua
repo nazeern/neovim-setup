@@ -9,6 +9,7 @@ return {
 		config = function()
 			vim.keymap.set("n", "<leader>gs", ":Neogit<CR>")
 			local neogit = require("neogit")
+			local diffview = require("diffview")
 
 			-- Use <space> instead of <tab> for toggling
 			neogit.setup({
@@ -16,6 +17,21 @@ return {
 					status = {
 						["<space>"] = "Toggle",
 						["K"] = false,
+					},
+				},
+			})
+
+			-- Use 'q' or 'Esc' to close the diffview
+			diffview.setup({
+				keymaps = {
+					view = {
+						-- Close with 'q' or 'Esc' when in the diff view
+						{ "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
+						{ "n", "<Esc>", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
+					},
+					file_panel = {
+						{ "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
+						{ "n", "<Esc>", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
 					},
 				},
 			})
