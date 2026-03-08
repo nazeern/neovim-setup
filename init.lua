@@ -18,6 +18,14 @@ vim.keymap.set(
 	{ desc = "Replace word under cursor" }
 )
 
+-- Force H and L to be window navigation in EVERY buffer
+vim.api.nvim_create_autocmd("BufEnter", {
+    callback = function()
+        vim.keymap.set("n", "H", "<C-w>h", { buffer = true, silent = true, nowait = true })
+        vim.keymap.set("n", "L", "<C-w>l", { buffer = true, silent = true, nowait = true })
+    end,
+})
+
 vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
