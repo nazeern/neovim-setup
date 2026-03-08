@@ -26,11 +26,11 @@ return {
 				keymaps = {
 					view = {
 						-- Close with 'q' or 'Esc' when in the diff view
-						{ "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
+						{ "n", "q",     "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
 						{ "n", "<Esc>", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
 					},
 					file_panel = {
-						{ "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
+						{ "n", "q",     "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
 						{ "n", "<Esc>", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
 					},
 				},
