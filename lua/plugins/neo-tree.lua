@@ -7,7 +7,7 @@ return {
 			"MunifTanjim/nui.nvim",
 			"nvim-tree/nvim-web-devicons", -- optional, but recommended
 		},
-		lazy = false,             -- neo-tree will lazily load itself
+		lazy = false, -- neo-tree will lazily load itself
 		opts = {
 			window = {
 				mappings = {
@@ -15,6 +15,18 @@ return {
 						"toggle_node",
 						nowait = true, -- disable `nowait` if you have existing combos starting with this char that you want to use
 					},
+				},
+			},
+			filesystem = {
+				-- open current file in filetree
+				follow_current_file = {
+					enabled = true,
+					leave_dirs_open = false,
+				},
+				use_libuv_file_watcher = true, -- Better performance and auto-sync
+				filtered_items = {
+					hide_dotfiles = false,
+					hide_gitignored = false,
 				},
 			},
 		},
