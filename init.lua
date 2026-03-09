@@ -4,6 +4,9 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.o.clipboard = "unnamedplus"
 
+-- Use 'e' for end
+vim.keymap.set({"n", "v"}, "e", "$")
+
 -- Deleting shouldn't yank
 vim.keymap.set("n", "dd", '"_dd')
 
