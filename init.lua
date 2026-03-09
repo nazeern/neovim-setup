@@ -51,8 +51,8 @@ vim.keymap.set("n", "gr", builtin.lsp_references, { nowait = true, desc = "Show 
 vim.keymap.set("n", "<leader>e", "<Cmd>Neotree<CR>")
 
 -- Use Shift to move up and down faster
-vim.keymap.set("n", "J", "10j", {})
-vim.keymap.set("n", "K", "10k", {})
+vim.keymap.set({"n", "v"}, "J", "10j", {})
+vim.keymap.set({"n", "v"}, "K", "10k", {})
 
 -- Copy relative path to clipboard
 vim.keymap.set("n", "<leader>cr", function()
