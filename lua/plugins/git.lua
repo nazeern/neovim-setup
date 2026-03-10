@@ -22,16 +22,19 @@ return {
 			})
 
 			-- Use 'q' or 'Esc' to close the diffview
+			local actions = require("diffview.actions")
 			diffview.setup({
 				keymaps = {
 					view = {
 						-- Close with 'q' or 'Esc' when in the diff view
 						{ "n", "q",     "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
 						{ "n", "<Esc>", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
+						{ "n", "<Enter>", actions.goto_file_tab, { desc = "Open file in new tab" } },
 					},
 					file_panel = {
 						{ "n", "q",     "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
 						{ "n", "<Esc>", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
+						{ "n", "<Enter>", actions.goto_file_tab, { desc = "Open file in new tab" } },
 					},
 				},
 			})
