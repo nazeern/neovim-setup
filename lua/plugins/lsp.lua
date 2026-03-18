@@ -9,7 +9,6 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				-- python
-				"basedpyright",
 				"ruff",
 				-- webdev
 				"eslint_d",
@@ -38,9 +37,6 @@ return {
 
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.basedpyright.setup({
 				capabilities = capabilities,
 			})
 			lspconfig.ruff.setup({
