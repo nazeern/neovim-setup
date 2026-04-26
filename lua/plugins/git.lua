@@ -29,12 +29,18 @@ return {
 						-- Close with 'q' or 'Esc' when in the diff view
 						{ "n", "q",     "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
 						{ "n", "<Esc>", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
-						{ "n", "<Enter>", actions.goto_file_tab, { desc = "Open file in new tab" } },
+						{ "n", "<Enter>", function()
+						actions.goto_file_tab()
+						vim.keymap.set("n", "q", "<cmd>tabclose<CR>", { buffer = true, desc = "Close tab" })
+					end, { desc = "Open file in new tab" } },
 					},
 					file_panel = {
 						{ "n", "q",     "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
 						{ "n", "<Esc>", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
-						{ "n", "<Enter>", actions.goto_file_tab, { desc = "Open file in new tab" } },
+						{ "n", "<Enter>", function()
+						actions.goto_file_tab()
+						vim.keymap.set("n", "q", "<cmd>tabclose<CR>", { buffer = true, desc = "Close tab" })
+					end, { desc = "Open file in new tab" } },
 					},
 				},
 			})
